@@ -1,4 +1,4 @@
-# Programozási környezetek beadandó - EKKE IK PTI - OOHQ3E - 2021/22 őszi félév
+# Programozási környezetek beadandó - EKKE IK PTI - NK-OOHQ3E Bagoly Gábor - 2021/22 őszi félév
 
 ### Little setup help:
 
