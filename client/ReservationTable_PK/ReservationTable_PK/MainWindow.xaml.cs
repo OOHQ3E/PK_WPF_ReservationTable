@@ -419,7 +419,8 @@ namespace ReservationTable_PK
             {
                 if (tb_ReservationName.Text == "")
                 {
-                    MessageBox.Show("Please give a name");
+                    MessageBox.Show("Name is empty, please try again");
+                    return;
                 }
                 else
                 {
@@ -583,7 +584,8 @@ namespace ReservationTable_PK
                 int row;
                 if (tb_ReservationName.Text == "")
                 {
-                    MessageBox.Show("Please give a name");
+                    MessageBox.Show("Name is empty, please try again");
+                    return;
                 }
                 
                 if (!int.TryParse(tb_SeatColumn.Text, out column) || !int.TryParse(tb_SeatRow.Text, out row))
