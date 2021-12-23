@@ -17,3 +17,22 @@ C:\Users\Gabol\source\repos\ReservationTable_PK\ReservationTable_PK\obj\Debug\Re
 C:\Users\Gabol\source\repos\ReservationTable_PK\ReservationTable_PK\obj\Debug\ReservationTable_PK.csproj.CoreCompileInputs.cache
 C:\Users\Gabol\source\repos\ReservationTable_PK\ReservationTable_PK\obj\Debug\ReservationTable_PK.exe
 C:\Users\Gabol\source\repos\ReservationTable_PK\ReservationTable_PK\obj\Debug\ReservationTable_PK.pdb
+D:\1_My Stuff\Dokumentumok\iskola\EKE PTI\3.félév\programozási környezetek\PK_WPF_OOHQ3E\client\ReservationTable_PK\ReservationTable_PK\bin\Debug\ReservationTable_PK.exe.config
+D:\1_My Stuff\Dokumentumok\iskola\EKE PTI\3.félév\programozási környezetek\PK_WPF_OOHQ3E\client\ReservationTable_PK\ReservationTable_PK\bin\Debug\ReservationTable_PK.exe
+D:\1_My Stuff\Dokumentumok\iskola\EKE PTI\3.félév\programozási környezetek\PK_WPF_OOHQ3E\client\ReservationTable_PK\ReservationTable_PK\bin\Debug\ReservationTable_PK.pdb
+D:\1_My Stuff\Dokumentumok\iskola\EKE PTI\3.félév\programozási környezetek\PK_WPF_OOHQ3E\client\ReservationTable_PK\ReservationTable_PK\bin\Debug\RestSharp.dll
+D:\1_My Stuff\Dokumentumok\iskola\EKE PTI\3.félév\programozási környezetek\PK_WPF_OOHQ3E\client\ReservationTable_PK\ReservationTable_PK\bin\Debug\RestSharp.xml
+D:\1_My Stuff\Dokumentumok\iskola\EKE PTI\3.félév\programozási környezetek\PK_WPF_OOHQ3E\client\ReservationTable_PK\ReservationTable_PK\obj\Debug\ReservationTable_PK.csproj.AssemblyReference.cache
+D:\1_My Stuff\Dokumentumok\iskola\EKE PTI\3.félév\programozási környezetek\PK_WPF_OOHQ3E\client\ReservationTable_PK\ReservationTable_PK\obj\Debug\LoginForm.g.cs
+D:\1_My Stuff\Dokumentumok\iskola\EKE PTI\3.félév\programozási környezetek\PK_WPF_OOHQ3E\client\ReservationTable_PK\ReservationTable_PK\obj\Debug\MainWindow.g.cs
+D:\1_My Stuff\Dokumentumok\iskola\EKE PTI\3.félév\programozási környezetek\PK_WPF_OOHQ3E\client\ReservationTable_PK\ReservationTable_PK\obj\Debug\App.g.cs
+D:\1_My Stuff\Dokumentumok\iskola\EKE PTI\3.félév\programozási környezetek\PK_WPF_OOHQ3E\client\ReservationTable_PK\ReservationTable_PK\obj\Debug\ReservationTable_PK_MarkupCompile.cache
+D:\1_My Stuff\Dokumentumok\iskola\EKE PTI\3.félév\programozási környezetek\PK_WPF_OOHQ3E\client\ReservationTable_PK\ReservationTable_PK\obj\Debug\ReservationTable_PK_MarkupCompile.lref
+D:\1_My Stuff\Dokumentumok\iskola\EKE PTI\3.félév\programozási környezetek\PK_WPF_OOHQ3E\client\ReservationTable_PK\ReservationTable_PK\obj\Debug\LoginForm.baml
+D:\1_My Stuff\Dokumentumok\iskola\EKE PTI\3.félév\programozási környezetek\PK_WPF_OOHQ3E\client\ReservationTable_PK\ReservationTable_PK\obj\Debug\MainWindow.baml
+D:\1_My Stuff\Dokumentumok\iskola\EKE PTI\3.félév\programozási környezetek\PK_WPF_OOHQ3E\client\ReservationTable_PK\ReservationTable_PK\obj\Debug\ReservationTable_PK.g.resources
+D:\1_My Stuff\Dokumentumok\iskola\EKE PTI\3.félév\programozási környezetek\PK_WPF_OOHQ3E\client\ReservationTable_PK\ReservationTable_PK\obj\Debug\ReservationTable_PK.Properties.Resources.resources
+D:\1_My Stuff\Dokumentumok\iskola\EKE PTI\3.félév\programozási környezetek\PK_WPF_OOHQ3E\client\ReservationTable_PK\ReservationTable_PK\obj\Debug\ReservationTable_PK.csproj.GenerateResource.cache
+D:\1_My Stuff\Dokumentumok\iskola\EKE PTI\3.félév\programozási környezetek\PK_WPF_OOHQ3E\client\ReservationTable_PK\ReservationTable_PK\obj\Debug\ReservationTable_PK.csproj.CoreCompileInputs.cache
+D:\1_My Stuff\Dokumentumok\iskola\EKE PTI\3.félév\programozási környezetek\PK_WPF_OOHQ3E\client\ReservationTable_PK\ReservationTable_PK\obj\Debug\ReservationTable_PK.exe
+D:\1_My Stuff\Dokumentumok\iskola\EKE PTI\3.félév\programozási környezetek\PK_WPF_OOHQ3E\client\ReservationTable_PK\ReservationTable_PK\obj\Debug\ReservationTable_PK.pdb

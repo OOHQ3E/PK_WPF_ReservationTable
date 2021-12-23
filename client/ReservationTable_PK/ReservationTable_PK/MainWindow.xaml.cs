@@ -173,11 +173,11 @@ namespace ReservationTable_PK
             int py = Convert.ToInt32(Canvas.GetTop(rectangle)) / (size + space);
 
             Reservation selected = reservations.Find(x => x.SeatRow == px && x.SeatColumn == py);
-            selected.SeatRow += 1; selected.SeatColumn += 1;
+            
             toBeEdited = selected;
             tb_ReservationName.Text = selected.ReservedBy;
-            tb_SeatColumn.Text = selected.SeatColumn.ToString();
-            tb_SeatRow.Text = selected.SeatRow.ToString();
+            tb_SeatColumn.Text = (selected.SeatColumn+1).ToString();
+            tb_SeatRow.Text = (selected.SeatRow+1).ToString();
         }
         private void Reserve(object sender, MouseButtonEventArgs e)
         {
@@ -323,6 +323,7 @@ namespace ReservationTable_PK
         {
             ListReservations();
             pending.Clear();
+            ButtonCheck();
             DrawTable(can_seats, null);
         }
         private void btn_Login_Click(object sender, RoutedEventArgs e)
