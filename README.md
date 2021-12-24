@@ -2,7 +2,7 @@
 
 ### Little setup help:
 
-  - pk_php mappát a xampp/htdocs-on belülre kell helyezni
+  - php_pk mappát a xampp/htdocs-on belülre kell helyezni
   - MySQL-be beimportálni az adatbázist:
       - a pk_oohq3e.sql fájlt bele kell helyezni a xampp mappájába
       - MySQL-ben létre kell hozni az adatbázist: ```create database pk_oohq3e;```   
