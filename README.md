@@ -12,7 +12,7 @@
 ### Little setup help:
 
   - The folder "php_pk" has to be moved in /xampp/htdocs/
-  - Importing the database to MySQL:
+  - Importing the database in MySQL:
       - The file "pk_oohq3e.sql" has to be moved in /xampp/
       - Creating the needed database in MySQL: ```create database pk_oohq3e;```   
       - Importing the data in the database: ```mysql -u root -p -h localhost pk_oohq3e<pk_oohq3e.sql```
