@@ -14,7 +14,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Drawing;
-using Color = System.Drawing.Color;
 using Pen = System.Drawing.Pen;
 using System.Configuration;
 using System.Threading;
@@ -36,8 +35,6 @@ namespace ReservationTable_PK
         private const int space = 4;
         private bool[,] seats = new bool[20, 20];
         static Random rnd = new Random();
-        
-
         public MainWindow()
         {
             string server = ConfigurationSettings.AppSettings["server"];
@@ -139,8 +136,7 @@ namespace ReservationTable_PK
                             }
                             else if (clickedButton.Name == "btn_Search")
                             {
-                                Reservation temp = reservations.Find(x => x.ReservedBy == tb_ReservationName.Text && x.SeatColumn == j && x.SeatRow == i);
-                                if (temp != null)
+                                if (reservations.Find(x => x.ReservedBy == tb_ReservationName.Text && x.SeatColumn == j && x.SeatRow == i) != null)
                                 {
                                     rectangle.Fill = Brushes.Pink;
                                 }
@@ -164,7 +160,7 @@ namespace ReservationTable_PK
                 }
             }
         }
-        private Reservation toBeEdited;
+        private Reservation ClickedSeat;
         private void ReservationViewing(object sender, MouseButtonEventArgs e)
         {
             Rectangle rectangle = sender as Rectangle;
@@ -172,12 +168,11 @@ namespace ReservationTable_PK
             int px = Convert.ToInt32(Canvas.GetLeft(rectangle)) / (size + space);
             int py = Convert.ToInt32(Canvas.GetTop(rectangle)) / (size + space);
 
-            Reservation selected = reservations.Find(x => x.SeatRow == px && x.SeatColumn == py);
-            
-            toBeEdited = selected;
-            tb_ReservationName.Text = selected.ReservedBy;
-            tb_SeatColumn.Text = (selected.SeatColumn+1).ToString();
-            tb_SeatRow.Text = (selected.SeatRow+1).ToString();
+            ClickedSeat = reservations.Find(x => x.SeatRow == px && x.SeatColumn == py);
+
+            tb_ReservationName.Text = ClickedSeat.ReservedBy;
+            tb_SeatColumn.Text = (ClickedSeat.SeatColumn+1).ToString();
+            tb_SeatRow.Text = (ClickedSeat.SeatRow+1).ToString();
         }
         private void Reserve(object sender, MouseButtonEventArgs e)
         {
@@ -187,7 +182,6 @@ namespace ReservationTable_PK
 
             int px = Convert.ToInt32(Canvas.GetLeft(rectangle)) / (size + space);
             int py = Convert.ToInt32(Canvas.GetTop(rectangle)) / (size + space);
-
 
             if (px < seats.GetLength(0) && py < seats.GetLength(1))
             {
@@ -220,7 +214,6 @@ namespace ReservationTable_PK
             ButtonCheck();
             seats[x, y] = !seats[x, y];
         }
-
         private void btn_LogOut_Click(object sender, EventArgs e)
         {
             LoginForm.LoggedInUser = null;
@@ -298,9 +291,7 @@ namespace ReservationTable_PK
                     pending.Clear();
                     break;
                 }
-                
             }
-            
             if (!successful)
             {
                 MessageBox.Show(message);
@@ -316,8 +307,6 @@ namespace ReservationTable_PK
                 ResetInputs();
                 DrawTable(can_seats, null);
             }
-            
-
         }
         private void btn_Update_Click(object sender, RoutedEventArgs e)
         {
@@ -426,7 +415,6 @@ namespace ReservationTable_PK
                 {
                     ListReservations();
                     Reservation selected = reservations.Find(x => x.ReservedBy == tb_ReservationName.Text);
-                    List<Reservation> deleteList = new List<Reservation>();
                     if (selected == null)
                     {
                         MessageBox.Show("There is no reservation with this name");
@@ -435,6 +423,7 @@ namespace ReservationTable_PK
                     }
                     else
                     {
+                        List<Reservation> deleteList = new List<Reservation>();
                         foreach (Reservation reservation in reservations)
                         {
                             if (selected.ReservedBy == reservation.ReservedBy)
@@ -450,6 +439,7 @@ namespace ReservationTable_PK
                             }
                         }
                         MessageBox.Show("Successul deletion!");
+                        deleteList.Clear();
                     }
                 }
                 ListReservations();
@@ -477,7 +467,6 @@ namespace ReservationTable_PK
                 return;
             }
             reservations.Remove(selected);
-            
         }
 
         private void btn_ResetInputs_Click(object sender, RoutedEventArgs e)
@@ -507,7 +496,6 @@ namespace ReservationTable_PK
                 return;
             }
         }
-
         private void btn_EditSelected_Click(object sender, RoutedEventArgs e)
         {
 
@@ -544,7 +532,7 @@ namespace ReservationTable_PK
                     return;
                 }
                 ListReservations();
-                Reservation selected = reservations.Find(x => x.ID == toBeEdited.ID && x.ID == toBeEdited.ID);
+                Reservation selected = reservations.Find(x => x.ID == ClickedSeat.ID && x.ID == ClickedSeat.ID);
                 if (selected == null)
                 {
                     MessageBox.Show("There is no reservation with these given inputs");
@@ -555,7 +543,6 @@ namespace ReservationTable_PK
                     MessageBox.Show("The selected seat is already reserved!");
                     return;
                 }
-                
                 else
                 {
                     Edit(selected,selected.ReservedBy,column-1,row-1);
@@ -567,8 +554,6 @@ namespace ReservationTable_PK
 
             }
         }
-        
-
         private void btn_EditName_Click(object sender, RoutedEventArgs e)
         {
             pending.Clear();
@@ -602,7 +587,7 @@ namespace ReservationTable_PK
                 {
                     ListReservations();
 
-                    Reservation selected = reservations.Find(x => x.ReservedBy == toBeEdited.ReservedBy && x.ReservedBy == toBeEdited.ReservedBy);
+                    Reservation selected = reservations.Find(x => x.ReservedBy == ClickedSeat.ReservedBy && x.ReservedBy == ClickedSeat.ReservedBy);
                     List<Reservation> editList = new List<Reservation>();
                     if (selected == null)
                     {
