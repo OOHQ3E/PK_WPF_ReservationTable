@@ -30,7 +30,9 @@ namespace ReservationTable_PK
     {
         RestClient client = null;
         List<Reservation> reservations;
+        List<Reservation> deleteList = new List<Reservation>();
         private List<Reservation> pending = new List<Reservation>();
+        List<Reservation> editList = new List<Reservation>();
         private const int size = 21;
         private const int space = 4;
         private bool[,] seats = new bool[20, 20];
@@ -65,13 +67,9 @@ namespace ReservationTable_PK
                 btn_Search.Visibility = Visibility.Hidden;
                 btn_Search.IsEnabled = false;
 
-                tb_SeatColumn.Visibility = Visibility.Hidden;
                 tb_SeatColumn.IsEnabled = false;
-                lbl_SeatColumn.Visibility = Visibility.Hidden;
 
-                tb_SeatRow.Visibility = Visibility.Hidden;
                 tb_SeatRow.IsEnabled = false;
-                lbl_SeatRow.Visibility = Visibility.Hidden;
             }
             else
             {
@@ -91,13 +89,9 @@ namespace ReservationTable_PK
                 btn_Search.Visibility = Visibility.Visible;
                 btn_Search.IsEnabled = true;
 
-                tb_SeatColumn.Visibility = Visibility.Visible;
                 tb_SeatColumn.IsEnabled = true;
-                lbl_SeatColumn.Visibility = Visibility.Visible;
 
-                tb_SeatRow.Visibility = Visibility.Visible;
                 tb_SeatRow.IsEnabled = true;
-                lbl_SeatRow.Visibility = Visibility.Visible;
             }
             tb_ReservationName.Clear();
             tb_SeatColumn.Clear();
@@ -189,11 +183,15 @@ namespace ReservationTable_PK
                 {
                     temp = new Reservation(px, py);
                     pending.Add(temp);
+                    tb_SeatColumn.Text = (temp.SeatColumn+1).ToString();
+                    tb_SeatRow.Text = (temp.SeatRow+1).ToString();
                 }
                 if (seats[px, py])
                 {
                     temp = pending.Find(x => x.SeatRow == px && x.SeatColumn == py);
                     pending.Remove(temp);
+                    tb_SeatRow.Clear();
+                    tb_SeatColumn.Clear();
                 }
                 SwitchState(px, py);
             }
@@ -344,6 +342,8 @@ namespace ReservationTable_PK
 
         private void btn_DeleteSelected_Click(object sender, RoutedEventArgs e)
         {
+            editList.Clear();
+            deleteList.Clear();
             pending.Clear();
             if (LoginForm.LoggedInUser == null)
             {
@@ -397,6 +397,8 @@ namespace ReservationTable_PK
 
         private void btn_DeleteByName_Click(object sender, RoutedEventArgs e)
         {
+            editList.Clear();
+            deleteList.Clear();
             pending.Clear();
             if (LoginForm.LoggedInUser == null)
             {
@@ -423,7 +425,6 @@ namespace ReservationTable_PK
                     }
                     else
                     {
-                        List<Reservation> deleteList = new List<Reservation>();
                         foreach (Reservation reservation in reservations)
                         {
                             if (selected.ReservedBy == reservation.ReservedBy)
@@ -445,6 +446,7 @@ namespace ReservationTable_PK
                 ListReservations();
                 ResetInputs();
                 DrawTable(can_seats, null);
+                deleteList.Clear();
             }
         }
         private void Delete(Reservation selected)
@@ -472,6 +474,7 @@ namespace ReservationTable_PK
         private void btn_ResetInputs_Click(object sender, RoutedEventArgs e)
         {
             ResetInputs();
+            ClickedSeat = null;
         }
 
         private void Edit(Reservation reservation, string newName, int newColumn, int newRow)
@@ -498,7 +501,8 @@ namespace ReservationTable_PK
         }
         private void btn_EditSelected_Click(object sender, RoutedEventArgs e)
         {
-
+            deleteList.Clear();
+            editList.Clear();
             pending.Clear();
             if (LoginForm.LoggedInUser == null)
             {
@@ -532,6 +536,11 @@ namespace ReservationTable_PK
                     return;
                 }
                 ListReservations();
+                if (ClickedSeat == null)
+                {
+                    MessageBox.Show("This seat does not exist / no input added!");
+                    return;
+                }
                 Reservation selected = reservations.Find(x => x.ID == ClickedSeat.ID && x.ID == ClickedSeat.ID);
                 if (selected == null)
                 {
@@ -551,11 +560,12 @@ namespace ReservationTable_PK
                     ListReservations();
                     DrawTable(can_seats, null);
                 }
-
             }
+
         }
         private void btn_EditName_Click(object sender, RoutedEventArgs e)
         {
+            deleteList.Clear();
             pending.Clear();
             if (LoginForm.LoggedInUser == null)
             {
@@ -586,9 +596,12 @@ namespace ReservationTable_PK
                 else
                 {
                     ListReservations();
-
+                    if (ClickedSeat == null)
+                    {
+                        MessageBox.Show("This seat does not exist / no input added!");
+                    }
                     Reservation selected = reservations.Find(x => x.ReservedBy == ClickedSeat.ReservedBy && x.ReservedBy == ClickedSeat.ReservedBy);
-                    List<Reservation> editList = new List<Reservation>();
+                    
                     if (selected == null)
                     {
                         MessageBox.Show("There is no such reservation");
@@ -618,6 +631,7 @@ namespace ReservationTable_PK
                 ListReservations();
                 ResetInputs();
                 DrawTable(can_seats, null);
+                editList.Clear();
             }
         }
     }
