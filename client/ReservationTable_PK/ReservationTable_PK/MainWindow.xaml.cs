@@ -26,6 +26,10 @@ namespace ReservationTable_PK
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
+
+    //utoljára kattint lement -> megvan
+    // amikor elkattint, akkor null a ClickedSeat
     public partial class MainWindow : Window
     {
         RestClient client = null;
@@ -33,6 +37,7 @@ namespace ReservationTable_PK
         List<Reservation> deleteList = new List<Reservation>();
         private List<Reservation> pending = new List<Reservation>();
         List<Reservation> editList = new List<Reservation>();
+        private Reservation ClickedSeat;
         private const int size = 21;
         private const int space = 4;
         private bool[,] seats = new bool[20, 20];
@@ -154,7 +159,6 @@ namespace ReservationTable_PK
                 }
             }
         }
-        private Reservation ClickedSeat;
         private void ReservationViewing(object sender, MouseButtonEventArgs e)
         {
             Rectangle rectangle = sender as Rectangle;
