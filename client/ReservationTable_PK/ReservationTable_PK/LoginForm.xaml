@@ -14,8 +14,7 @@
         <Label x:Name="lbl_LoginPassword" FontSize="16" Content="Password" HorizontalAlignment="Left" Margin="15,91,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.472,0.456"/>
         <TextBox TabIndex="1" x:Name="tb_LoginUsername" HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="16" Height="44" Margin="10,47,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="375"/>
         <PasswordBox TabIndex="2" x:Name="tb_LoginPassword" PasswordChar="*"  HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="16" Height="44" Margin="10,123,0,0" VerticalAlignment="Top" Width="375"/>
-        <Button TabIndex="3" x:Name="btn_ExecuteLogin" Content="Login" FontSize="16" HorizontalAlignment="Left" Margin="10,172,0,-0.4" VerticalAlignment="Top" Width="180" Height="61" Click="btn_ExecuteLogin_Click"/>
+        <Button IsDefault="True" TabIndex="3" x:Name="btn_ExecuteLogin" Content="Login" FontSize="16" HorizontalAlignment="Left" Margin="10,172,0,-0.4" VerticalAlignment="Top" Width="180" Height="61" Click="btn_ExecuteLogin_Click"/>
         <Button TabIndex="4" x:Name="btn_cancel" Content="Cancel" IsCancel="True" FontSize="16" HorizontalAlignment="Left" Margin="205,172,0,0" VerticalAlignment="Top" Width="180" Height="61"/>
-
     </Grid>
 </Window>
