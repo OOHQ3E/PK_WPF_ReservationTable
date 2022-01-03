@@ -99,6 +99,7 @@ namespace ReservationTable_PK
             tb_ReservationName.Clear();
             tb_SeatColumn.Clear();
             tb_SeatRow.Clear();
+            ClickedSeat = null;
             ButtonCheck();
         }
         
@@ -602,6 +603,7 @@ namespace ReservationTable_PK
                     if (ClickedSeat == null)
                     {
                         MessageBox.Show("This seat does not exist / no input added!");
+                        return;
                     }
                     Reservation selected = reservations.Find(x => x.ReservedBy == ClickedSeat.ReservedBy && x.ReservedBy == ClickedSeat.ReservedBy);
                     
