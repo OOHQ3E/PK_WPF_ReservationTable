@@ -28,8 +28,6 @@ namespace ReservationTable_PK
     /// </summary>
     /// 
 
-    //utoljára kattint lement -> megvan
-    // amikor elkattint, akkor null a ClickedSeat
     public partial class MainWindow : Window
     {
         RestClient client = null;
@@ -174,6 +172,7 @@ namespace ReservationTable_PK
         }
         private void Reserve(object sender, MouseButtonEventArgs e)
         {
+            ClickedSeat = null;
             Rectangle rectangle = sender as Rectangle;
             Reservation temp;
             rectangle.Fill = (rectangle.Fill == Brushes.Green) ? Brushes.LightBlue : Brushes.Green;
